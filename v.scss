@@ -1,0 +1,196 @@
+
+
+#newTestimonial {
+  background-color: #fff;
+  padding: 110px 0 130px;
+  position: relative;
+  @include for-size(1024px) {
+    padding: 40px 0;
+  }
+  @include for-size(sm) {
+    .acf-form-fields {
+      @include flex-direction(column);
+      input{
+        width: 100%;
+      }
+    }
+  }
+  @include for-size(xs) {
+    padding: 20px 0;
+  }
+  h2 {
+    color: #1a1a1a;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    @include for-size(1024px) {
+      font-size: 30px;
+    }
+    @include for-size(xs) {
+      font-size: 24px;
+    }
+  }
+  .acf-fields > .acf-field {
+    border: none;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  .acf-label {
+    display: none;
+  }
+  .acf-field-radio {
+    .acf-label {
+      display: block;
+      label {
+        text-align: center;
+      }
+    }
+    .acf-radio-list {
+      text-align: center;
+      li {
+        display: inline-block;
+        float: none;
+      }
+    }
+  }
+
+
+  ul.acf-radio-list.acf-hl li, ul.acf-checkbox-list.acf-hl li {
+    margin-right: 0;
+  }
+
+  /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+     follow these rules. Every browser that supports :checked also supports :not(), so
+     it doesn’t make the test unnecessarily selective */
+
+  .acf-radio-list:not(:checked) >li input {
+    position:absolute;
+    top:20px;
+    clip:rect(0,0,0,0);
+  }
+.selected {
+  &:before {
+    color: gold;
+  }
+}
+  .acf-radio-list:not(:checked) >li label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#dadada;
+    //text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+  }
+
+  .acf-radio-list:not(:checked) >li label:before {
+    content: '★ ';
+  }
+
+  .acf-radio-list > input:checked ~ label {
+    color: #f70;
+    //text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+  }
+
+  .acf-radio-list:not(:checked) >li label:hover,
+  .acf-radio-list:not(:checked) >li label:hover ~ label {
+    color: gold;
+    //text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+  }
+  li.active, li.enable {
+    label {
+      &:before {
+        color: gold;
+      }
+    }
+  }
+
+  .acf-radio-list >li input:checked + label:hover,
+  .acf-radio-list >li input:checked + label:hover ~ label,
+  .acf-radio-list >li input:checked ~ label:hover,
+  .acf-radio-list >li input:checked ~ label:hover ~ label,
+  .acf-radio-list >li label:hover ~ input:checked ~ label {
+    color: #ea0;
+    //text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+  }
+
+  .acf-form-submit {
+    text-align: center;
+  }
+  .acf-form-fields {
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include justify-content(space-between);
+  }
+  .acf-field-radio, .acf-field-textarea {
+    @include flex-basis(100%);
+  }
+  .acf-field-textarea {
+    @include order(3);
+    textarea {
+      resize: none;
+    }
+  }
+  .acf-field-text {
+    @include order(2);
+  }
+  .custom_input, .acf-field--post-title {
+    width: 24% !important;
+  }
+  .acf-field-recaptcha {
+    @include order(4);
+    display: block;
+    width: 100%;
+    text-align: center;
+    .acf-input {
+      display: inline-block;
+    }
+  }
+}
+.grecaptcha-badge {
+   display: none !important;
+ }
+@media screen and (max-width: 1024px){
+  .post-type-archive-testimonials .grid {
+    padding: 66px 0px;
+  }
+  .post-type-archive-testimonials .reviewsBox {
+    padding-bottom: 66px;
+  }
+}
+@media screen and (max-width: 576px){
+  .post-type-archive-testimonials .grid {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+  .post-type-archive-testimonials .wp-pagenavi {
+    a{
+      font-size: 16px;
+    }
+    span{
+      font-size: 16px;
+    }
+
+    position: relative;
+    .pages{
+      position: absolute;
+      top:-33px
+    }
+  }
+  .post-type-archive-testimonials .grid {
+    padding: 35px 0px;
+  }
+  .post-type-archive-testimonials .reviewsBox {
+    padding-bottom: 35px;
+  }
+}
+@media screen  and (max-width: 768px){
+  #newTestimonial .custom_input, #newTestimonial .acf-field--post-title {
+    width:100% !important;
+  }
+}
